@@ -1,0 +1,53 @@
+spring:
+  redis:
+    database: 0
+    host: localhost
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-active: 10
+        max-idle: 10
+        min-idle: 0
+        max-wait: -1
+    timeout: 10000
+
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: ${MYSQL-USER:root}
+      password: ${MYSQL-PWD:}
+      jdbc-url: jdbc:mysql://${MYSQL-HOST:localhost}:${MYSQL-PORT:3306}/${MYSQL-DB:marking}?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true&allowPublicKeyRetrieval=true
+    tomcat:
+      initial-size: 5
+
+    #MongoDB相关配置
+    data:
+      mongodb:
+        username:
+        password:
+        host: localhost
+        port: 27017
+        database: test
+        #MongoDB数据库连接池相关配置
+        option:
+          always-use-m-beans: false
+          connect-timeout: 10000
+          heartbeat-connect-timeout: 20000
+          heartbeat-frequency: 10000
+          heartbeat-socket-timeout: 20000
+          local-threshold: 15
+          max-connection-idle-time: 0
+          max-connection-life-time: 0
+          max-connection-per-host: 100
+          max-wait-time: 120000
+          min-connection-per-host: 0
+          min-heartbeat-frequency: 500
+          server-selection-timeout: 30000
+          socket-keep-alive: false
+          socket-timeout: 0
+          ssl-enabled: false
+          ssl-invalid-host-name-allowed: false
+          threads-allowed-to-block-for-connection-multiplier: 5
